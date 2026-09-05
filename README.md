@@ -1,4 +1,4 @@
-# Hybrid-Active-Directory-Entra-ID-Identity-Lab
+# Hybrid Active Directory & Microsoft Entra ID Identity Management Lab
 
 ![Architecture](https://img.shields.io/badge/Architecture-Hybrid%20Identity-blue)
 ![Host OS](https://img.shields.io/badge/Host%20OS-Fedora%20Linux-blue)
@@ -28,22 +28,35 @@ In this project, I designed, deployed, and configured a hybrid identity environm
 
 ---
 
-##  Key Project Milestones
+## 🚀 Key Project Milestones
 
 ### On-Premises Organizational Unit (OU) & User Design
-Structured directory layout (`OU=Corporate_Users`, `OU=Corporate_Groups`) populated with test identities (`jdoe`, `asmith`) and populated attributes:
+I structured a custom directory layout (`OU=Corporate_Users`, `OU=Corporate_Groups`) and populated test identities (`jdoe`, `asmith`) with realistic enterprise attributes (UPN, department, title) to ensure proper attribute mapping during synchronization:
 
 ![Active Directory Setup](assets/17-active-directory.png)
 
 ### Microsoft Entra Connect Synchronization Scope
-Filtering directory synchronization exclusively to target active Organizational Units:
+I configured custom domain and OU filtering inside Microsoft Entra Connect Sync to scope directory replication exclusively to target active Organizational Units, keeping default system accounts isolated from the cloud:
 
 ![OU Filtering Configuration](assets/29-entra-connect.png)
 
-### Cloud Role-Based Access Control (RBAC)
-Delegating the cloud **Helpdesk Administrator** role to a synced on-premises identity (`jdoe`):
+### Cloud Role-Based Access Control (RBAC) & Authentication
+I delegated scoped cloud administrative privileges by assigning the **Helpdesk Administrator** role to a synced on-premises identity (`jdoe`), then verified end-to-end authentication via Password Hash Synchronization (PHS) and baseline MFA enrollment:
 
 ![Role Assignment](assets/37-assigning-roles.png)
+
+---
+
+## 🧠 What I Learned
+
+* **Hybrid Architecture Design:** Gained practical understanding of how on-premises Active Directory Domain Services (AD DS) objects map to cloud-native Microsoft Entra ID identities via immutable IDs (`mS-DS-ConsistencyGuid`).
+* **UPN Suffix Alignment & Identity Matching:** Learned the critical necessity of adding custom UPN suffixes in **Active Directory Domains and Trusts** so local private domain accounts (`.local`) route cleanly to verified cloud tenant UPNs.
+* **Authentication Engine Mechanics:** Explored how Password Hash Synchronization (PHS) extracts, re-hashes, and securely transmits password hashes to Entra ID, allowing seamless user authentication without exposing domain controllers directly to the internet.
+* **Real-World Technical Troubleshooting:** 
+  * Diagnosed MSAL certificate validation failures (`AADSTS700027`) during Entra Connect setup caused by VM-to-host clock skews.
+  * Resynchronized Windows Time Service (`w32tm`) to align UTC timestamps.
+  * Purged stale app registrations (`App ID: 2c8d3240-6f03-4e0e-86a0-a52cdb781491`) and installer state files (`PersistedState.xml`) to achieve clean engine registration.
+* **Least Privilege Governance:** Implemented Cloud Role-Based Access Control (RBAC) to enforce Zero Trust principles by granting minimum required administrative scopes (Helpdesk Admin) to synced accounts.
 
 ---
 
@@ -135,4 +148,3 @@ Delegating the cloud **Helpdesk Administrator** role to a synced on-premises ide
 </details>
 
 ---
-
