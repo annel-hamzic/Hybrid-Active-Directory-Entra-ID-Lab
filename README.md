@@ -136,12 +136,3 @@ Delegating the cloud **Helpdesk Administrator** role to a synced on-premises ide
 
 ---
 
-## 🛠️ Key Technical Troubleshooting & Resolution
-
-During the deployment of Microsoft Entra Connect Sync, the installer failed at the **Application-Based Authentication (ABA)** configuration phase with MSAL error `AADSTS700027`:
-
-* **Root Cause:** A time synchronization skew between the local Windows Server VM and UTC caused Microsoft Graph to reject the self-signed setup certificate as expired or not yet valid.
-* **Resolution Pipeline:**
-  1. Re-registered and synchronized the Windows Time Service (`w32tm`) to align the local system clock with host time.
-  2. Purged stale/partially registered service applications (`App ID: 2c8d3240-6f03-4e0e-86a0-a52cdb781491`) inside Microsoft Entra Admin Center.
-  3. Cleared local cached setup configurations (`C:\ProgramData\AADConnect\PersistedState.xml`) and re-executed the wizard to complete sync initialization successfully.
