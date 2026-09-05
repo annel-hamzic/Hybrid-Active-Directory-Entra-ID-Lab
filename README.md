@@ -42,7 +42,7 @@ I structured a custom directory layout (`OU=Corporate_Users`, `OU=Corporate_Grou
 </details>
 
 ### Microsoft Entra Connect Synchronization Scope
-I configured custom domain and OU filtering inside Microsoft Entra Connect Sync to scope directory replication exclusively to target active Organizational Units, keeping default system accounts isolated from the cloud:
+On this part I configured custom domain and OU filtering inside Microsoft Entra Connect Sync to scope directory replication exclusively to target active Organizational Units, keeping default system accounts isolated from the cloud:
 
 <details>
 <summary><b><font color="#0969da">View Screenshot: OU Filtering Configuration</font></b></summary>
@@ -53,7 +53,7 @@ I configured custom domain and OU filtering inside Microsoft Entra Connect Sync 
 </details>
 
 ### Cloud Role-Based Access Control (RBAC) & Authentication
-I delegated scoped cloud administrative privileges by assigning the **Helpdesk Administrator** role to a synced on-premises identity (`jdoe`), then verified end-to-end authentication via Password Hash Synchronization (PHS) and baseline MFA enrollment:
+Below is a delegated scoped cloud administrative privileges by assigning the **Helpdesk Administrator** role to a synced on-premises identity (`jdoe`), then verified end-to-end authentication via Password Hash Synchronization (PHS) and baseline MFA enrollment:
 
 <details>
 <summary><b><font color="#0969da">View Screenshot: Helpdesk Administrator Role Assignment</font></b></summary>
