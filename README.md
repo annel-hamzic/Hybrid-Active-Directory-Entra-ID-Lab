@@ -38,7 +38,7 @@ Structured directory layout (`OU=Corporate_Users`, `OU=Corporate_Groups`) popula
 ### Microsoft Entra Connect Synchronization Scope
 Filtering directory synchronization exclusively to target active Organizational Units:
 
-![OU Filtering Configuration](assets/30-entra-connect.png)
+![OU Filtering Configuration](assets/29-entra-connect.png)
 
 ### Cloud Role-Based Access Control (RBAC)
 Delegating the cloud **Helpdesk Administrator** role to a synced on-premises identity (`jdoe`):
