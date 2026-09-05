@@ -28,26 +28,44 @@ In this project, I designed, deployed, and configured a hybrid identity environm
 
 ---
 
-##  Key Project Milestones
+## Key Project Milestones
 
 ### On-Premises Organizational Unit (OU) & User Design
 I structured a custom directory layout (`OU=Corporate_Users`, `OU=Corporate_Groups`) and populated test identities (`jdoe`, `asmith`) with realistic enterprise attributes (UPN, department, title) to ensure proper attribute mapping during synchronization:
 
+<details>
+<summary><b>View Screenshot: Active Directory OU Setup</b></summary>
+<br>
+
 ![Active Directory Setup](assets/17-active-directory.png)
+
+</details>
 
 ### Microsoft Entra Connect Synchronization Scope
 I configured custom domain and OU filtering inside Microsoft Entra Connect Sync to scope directory replication exclusively to target active Organizational Units, keeping default system accounts isolated from the cloud:
 
+<details>
+<summary><b>View Screenshot: OU Filtering Configuration</b></summary>
+<br>
+
 ![OU Filtering Configuration](assets/29-entra-connect.png)
+
+</details>
 
 ### Cloud Role-Based Access Control (RBAC) & Authentication
 I delegated scoped cloud administrative privileges by assigning the **Helpdesk Administrator** role to a synced on-premises identity (`jdoe`), then verified end-to-end authentication via Password Hash Synchronization (PHS) and baseline MFA enrollment:
 
+<details>
+<summary><b>View Screenshot: Helpdesk Administrator Role Assignment</b></summary>
+<br>
+
 ![Role Assignment](assets/37-assigning-roles.png)
+
+</details>
 
 ---
 
-##  What I Learned
+## What I Learned
 
 * **Hybrid Architecture Design:** Gained practical understanding of how on-premises Active Directory Domain Services (AD DS) objects map to cloud-native Microsoft Entra ID identities via immutable IDs (`mS-DS-ConsistencyGuid`).
 * **UPN Suffix Alignment & Identity Matching:** Learned the critical necessity of adding custom UPN suffixes in **Active Directory Domains and Trusts** so local private domain accounts (`.local`) route cleanly to verified cloud tenant UPNs.
