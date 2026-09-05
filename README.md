@@ -31,33 +31,23 @@ In this project, I designed, deployed, and configured a hybrid identity environm
 ## Key Project Milestones
 
 ### On-Premises Organizational Unit (OU) & User Design
+
 I structured a custom directory layout (`OU=Corporate_Users`, `OU=Corporate_Groups`) and populated test identities (`jdoe`, `asmith`) with realistic enterprise attributes (UPN, department, title) to ensure proper attribute mapping during synchronization:
-
-
-<summary><b><font color="#0969da">Active Directory OU Setup</font></b></summary>
-<br>
-
 ![Active Directory Setup](assets/17-active-directory.png)
 
 
 
 ### Microsoft Entra Connect Synchronization Scope
+
 On this part I configured custom domain and OU filtering inside Microsoft Entra Connect Sync to scope directory replication exclusively to target active Organizational Units, keeping default system accounts isolated from the cloud:
-
-
-<summary><b><font color="#0969da">OU Filtering Configuration</font></b></summary>
-<br>
 
 ![OU Filtering Configuration](assets/29-entra-connect.png)
 
 
 
 ### Cloud Role-Based Access Control (RBAC) & Authentication
-Below is a delegated scoped cloud administrative privileges by assigning the **Helpdesk Administrator** role to a synced on-premises identity (`jdoe`), then verified end-to-end authentication via Password Hash Synchronization (PHS) and baseline MFA enrollment:
 
-
-<summary><b><font color="#0969da">Helpdesk Administrator Role Assignment</font></b></summary>
-<br>
+Below I delegated scoped cloud administrative privileges by assigning the Helpdesk Administrator role to a synced on-premises identity (`jdoe`), then verified end-to-end authentication via Password Hash Synchronization (PHS) and baseline MFA enrollment:
 
 ![Role Assignment](assets/37-assigning-roles.png)
 
