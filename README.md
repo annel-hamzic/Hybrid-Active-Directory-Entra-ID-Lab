@@ -28,7 +28,7 @@ In this project, I designed, deployed, and configured a hybrid identity environm
 
 ---
 
-## 🚀 Key Project Milestones
+##  Key Project Milestones
 
 ### On-Premises Organizational Unit (OU) & User Design
 I structured a custom directory layout (`OU=Corporate_Users`, `OU=Corporate_Groups`) and populated test identities (`jdoe`, `asmith`) with realistic enterprise attributes (UPN, department, title) to ensure proper attribute mapping during synchronization:
@@ -47,7 +47,7 @@ I delegated scoped cloud administrative privileges by assigning the **Helpdesk A
 
 ---
 
-## 🧠 What I Learned
+##  What I Learned
 
 * **Hybrid Architecture Design:** Gained practical understanding of how on-premises Active Directory Domain Services (AD DS) objects map to cloud-native Microsoft Entra ID identities via immutable IDs (`mS-DS-ConsistencyGuid`).
 * **UPN Suffix Alignment & Identity Matching:** Learned the critical necessity of adding custom UPN suffixes in **Active Directory Domains and Trusts** so local private domain accounts (`.local`) route cleanly to verified cloud tenant UPNs.
@@ -60,7 +60,7 @@ I delegated scoped cloud administrative privileges by assigning the **Helpdesk A
 
 ---
 
-## 📷 Complete 41-Screenshot Documentation Gallery
+## Complete 41-Screenshot Documentation Gallery
 
 <details>
 <summary><b>Phase 1: Windows Server VM & Network Setup (Images 01–05)</b></summary>
