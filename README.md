@@ -57,7 +57,7 @@ Below I delegated scoped cloud administrative privileges by assigning the Helpde
 
 ## What I Learned
 
-* **Hybrid Architecture Design:** Gained practical understanding of how on-premises Active Directory Domain Services (AD DS) objects map to cloud-native Microsoft Entra ID identities via immutable IDs (`mS-DS-ConsistencyGuid`).
+* **Hybrid Architecture Design:** Gained practical understanding of how on-premises Active Directory Domain Services (AD DS) objects map to cloud-native Microsoft Entra ID identities.
 * **UPN Suffix Alignment & Identity Matching:** Learned the critical necessity of adding custom UPN suffixes in **Active Directory Domains and Trusts** so local private domain accounts (`.local`) route cleanly to verified cloud tenant UPNs.
 * **Authentication Engine Mechanics:** Explored how Password Hash Synchronization (PHS) extracts, re-hashes, and securely transmits password hashes to Entra ID, allowing seamless user authentication without exposing domain controllers directly to the internet.
 * **Real-World Technical Troubleshooting:** 
