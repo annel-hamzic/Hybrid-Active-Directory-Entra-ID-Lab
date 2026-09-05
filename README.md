@@ -55,7 +55,6 @@ I delegated scoped cloud administrative privileges by assigning the **Helpdesk A
 * **Real-World Technical Troubleshooting:** 
   * Diagnosed MSAL certificate validation failures (`AADSTS700027`) during Entra Connect setup caused by VM-to-host clock skews.
   * Resynchronized Windows Time Service (`w32tm`) to align UTC timestamps.
-  * Purged stale app registrations (`App ID: 2c8d3240-6f03-4e0e-86a0-a52cdb781491`) and installer state files (`PersistedState.xml`) to achieve clean engine registration.
 * **Least Privilege Governance:** Implemented Cloud Role-Based Access Control (RBAC) to enforce Zero Trust principles by granting minimum required administrative scopes (Helpdesk Admin) to synced accounts.
 
 ---
